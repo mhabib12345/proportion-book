@@ -7,3 +7,4 @@
 - [Blank page](./blank_page.md) 
 - [Archimedes: A History](./history.md)
 - [Geometry Formulas](./geometry.md)
+- [High School Geometry](./geometry_hs.md)
