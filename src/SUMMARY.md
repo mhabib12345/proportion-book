@@ -8,3 +8,5 @@
 - [Archimedes: A History](./history.md)
 - [Geometry Formulas](./geometry.md)
 - [High School Geometry](./geometry_hs.md)
+- [Intro to Polynomials](./polynomials.md)
+- [Operations & Theorems](./polynomial_theorems.md)
