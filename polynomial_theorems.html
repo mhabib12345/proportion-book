@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Archimedes: A History - mybook</title>
+        <title>Operations &amp; Theorems - mybook</title>
 
 
         <!-- Custom HTML head -->
@@ -190,56 +190,63 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="-archimedes-the-father-of-mathematics"><a class="header" href="#-archimedes-the-father-of-mathematics">🏛️ Archimedes: The Father of Mathematics</a></h1>
-<p>Archimedes of Syracuse (c. 287 – 212 BC) was a Greek mathematician, physicist, and engineer. He is most famous for his “Eureka!” moment and his ability to see the world through the lens of ratios and proportions.</p>
+                        <h1 id="-polynomial-operations--theorems"><a class="header" href="#-polynomial-operations--theorems">🧮 Polynomial Operations &amp; Theorems</a></h1>
+<p>Before we can use advanced theorems, we must understand how to combine polynomial terms.</p>
+<h2 id="1-adding-and-subtracting-like-terms"><a class="header" href="#1-adding-and-subtracting-like-terms">1. Adding and Subtracting: “Like Terms”</a></h2>
+<p>You can only add or subtract terms that have the <strong>same variable</strong> and the <strong>same exponent</strong>.</p>
+<p><strong>Example:</strong> $(3x^2 + 5x - 7) + (x^2 - 2x + 1)$</p>
+<ol>
+<li>Group the $x^2$ terms: $3x^2 + 1x^2 = 4x^2$</li>
+<li>Group the $x$ terms: $5x - 2x = 3x$</li>
+<li>Group the constants: $-7 + 1 = -6$
+<strong>Result:</strong> $4x^2 + 3x - 6$</li>
+</ol>
 <hr>
-<h2 id="-the-case-of-the-golden-crown"><a class="header" href="#-the-case-of-the-golden-crown">👑 The Case of the Golden Crown</a></h2>
-<p>The most famous story involving Archimedes is the <strong>Case of the Golden Crown</strong>. King Hiero II of Syracuse suspected a goldsmith had cheated him by mixing silver into a “pure gold” crown. He asked Archimedes to prove it without damaging the crown.</p>
-<h3 id="the-discovery-displacement"><a class="header" href="#the-discovery-displacement">The Discovery: Displacement</a></h3>
-<p>While stepping into a bathtub, Archimedes noticed the water level rose. He realized that the <strong>volume</strong> of water displaced was <strong>directly proportional</strong> to the volume of the object submerged.</p>
-<p><strong>The Math:</strong>
-$$V_{\text{object}} \propto V_{\text{water displaced}}$$</p>
-<p>By comparing the amount of water displaced by the crown versus a lump of pure gold of the exact same weight, he proved the crown was less dense—meaning it was mixed with silver!</p>
-<hr>
-<h2 id="-archimedes-and-the-lever"><a class="header" href="#-archimedes-and-the-lever">🏗️ Archimedes and the Lever</a></h2>
-<p>Archimedes was obsessed with the <strong>Inverse Proportion</strong> found in simple machines. He famously said:</p>
+<h2 id="2-the-remainder-theorem"><a class="header" href="#2-the-remainder-theorem">2. The Remainder Theorem</a></h2>
+<p>This theorem is a massive time-saver. Instead of performing long division, you can find the remainder of a polynomial division instantly.</p>
 <blockquote>
-<p><em>“Give me a place to stand, and I shall move the Earth.”</em></p>
+<p><strong>The Theorem:</strong> If you divide a polynomial $P(x)$ by $(x - c)$, the remainder is simply $P(c)$.</p>
 </blockquote>
-<h3 id="the-law-of-the-lever"><a class="header" href="#the-law-of-the-lever">The Law of the Lever</a></h3>
-<p>He discovered that for a lever to balance, the weight ($w$) is <strong>inversely proportional</strong> to its distance ($d$) from the pivot point (fulcrum).</p>
-<p><strong>The Formula:</strong>
-$$w_1 \cdot d_1 = w_2 \cdot d_2$$</p>
-<p>To lift a very heavy weight (increase $w$), you must increase your distance from the pivot (increase $d$) so the effort required remains small.</p>
-<hr>
-<h2 id="-his-mathematical-legacy"><a class="header" href="#-his-mathematical-legacy">📜 His Mathematical Legacy</a></h2>
-<p>Archimedes didn’t just solve kingly puzzles; he laid the groundwork for modern geometry:</p>
+<p><strong>Example:</strong> Find the remainder when $P(x) = x^3 - 2x^2 + 3$ is divided by $(x - 2)$.</p>
 <ul>
-<li>
-<p><strong>Calculating Pi ($\pi$):</strong> He used polygons to find a very accurate ratio of a circle’s circumference to its diameter.</p>
-</li>
-<li>
-<p><strong>The Archimedes Screw:</strong> A device for raising water that is still used in irrigation today.</p>
-</li>
-<li>
-<p><strong>Sphere and Cylinder:</strong> He proved that the volume of a sphere is exactly <strong>two-thirds</strong> the volume of a cylinder that encloses it.</p>
-</li>
+<li>Instead of dividing, just plug in $2$ for $x$:</li>
+<li>$P(2) = (2)^3 - 2(2)^2 + 3$</li>
+<li>$P(2) = 8 - 8 + 3 = 3$</li>
+<li><strong>The Remainder is 3.</strong></li>
 </ul>
 <hr>
-<h3 id="-why-this-matters-today"><a class="header" href="#-why-this-matters-today">💡 Why this matters today</a></h3>
-<p>Archimedes showed us that nature follows mathematical rules. Whether it’s the density of a metal (Direct Proportion) or the physics of a see-saw (Inverse Proportion), his work proves that math is the “language” of the physical world.</p>
+<h2 id="3-the-factor-theorem"><a class="header" href="#3-the-factor-theorem">3. The Factor Theorem</a></h2>
+<p>The Factor Theorem is a special case of the Remainder Theorem. It helps us find the “roots” or “zeros” of a polynomial.</p>
+<blockquote>
+<p><strong>The Theorem:</strong> $(x - c)$ is a <strong>factor</strong> of $P(x)$ if and only if $P(c) = 0$.</p>
+</blockquote>
+<h3 id="why-is-this-useful"><a class="header" href="#why-is-this-useful">Why is this useful?</a></h3>
+<p>If $P(c) = 0$, it means the division has <strong>no remainder</strong>, so the polynomial passes exactly through the x-axis at that point.</p>
+<p><strong>Example:</strong> Is $(x - 1)$ a factor of $P(x) = x^2 - 3x + 2$?</p>
+<ol>
+<li>Plug in $1$: $P(1) = (1)^2 - 3(1) + 2$</li>
+<li>Calculate: $1 - 3 + 2 = 0$</li>
+<li><strong>Yes!</strong> Because the result is $0$, $(x - 1)$ is a factor.</li>
+</ol>
+<hr>
+<h2 id="4-synthetic-division-the-shortcut"><a class="header" href="#4-synthetic-division-the-shortcut">4. Synthetic Division: The Shortcut</a></h2>
+<p>To apply these theorems quickly, we often use <strong>Synthetic Division</strong>, a shorthand method of polynomial division.</p>
+<hr>
+<h2 id="-pro-tip-for-your-book"><a class="header" href="#-pro-tip-for-your-book">💡 Pro-Tip for your Book</a></h2>
+<p>When graphing these, remember:</p>
+<ul>
+<li>If $(x - c)$ is a factor, the graph <strong>crosses</strong> the x-axis at $c$.</li>
+<li>If the remainder is positive, the graph is <strong>above</strong> the axis at that point.</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="blank_page.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="polynomials.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                             </a>
 
-                            <a rel="next prefetch" href="geometry.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -247,13 +254,10 @@ $$w_1 \cdot d_1 = w_2 \cdot d_2$$</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="blank_page.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="polynomials.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
                     </a>
 
-                    <a rel="next prefetch" href="geometry.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
-                    </a>
             </nav>
 
         </div>
