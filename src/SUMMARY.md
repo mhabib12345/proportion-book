@@ -10,3 +10,5 @@
 - [High School Geometry](./geometry_hs.md)
 - [Intro to Polynomials](./polynomials.md)
 - [Operations & Theorems](./polynomial_theorems.md)
+- [Horner Method](./horner_method.md)
+- [Polynomial Practice](./practice_polynomials.md)
