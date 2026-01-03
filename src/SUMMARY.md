@@ -6,3 +6,4 @@
 - [Practice Problems](./practice_problems.md)
 - [Blank page](./blank_page.md) 
 - [Archimedes: A History](./history.md)
+- [Geometry Formulas](./geometry.md)
