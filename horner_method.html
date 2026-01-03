@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Page not found - mybook</title>
-        <base href="/">
+        <title>Horner Method - mybook</title>
 
 
         <!-- Custom HTML head -->
@@ -191,14 +190,77 @@
 
                 <div id="mdbook-content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h2 id="-worked-example-the-horner-method"><a class="header" href="#-worked-example-the-horner-method">📝 Worked Example: The Horner Method</a></h2>
+<p>Let’s solve a problem step-by-step to see how the numbers move through the “Bagan Horner.”</p>
+<p><strong>Problem:</strong> Find the quotient and remainder when:
+$$P(x) = x^4 - 3x^2 + 2x - 5$$
+is divided by $(x - 2)$.</p>
+<hr>
+<h3 id="1-identify-the-coefficients"><a class="header" href="#1-identify-the-coefficients">1. Identify the Coefficients</a></h3>
+<p>Before starting, look for “missing” powers of $x$. In this polynomial, there is no $x^3$ term. You <strong>must</strong> use <strong>0</strong> as a placeholder.</p>
+<ul>
+<li><strong>Coefficients:</strong> 1 ($x^4$), 0 ($x^3$), -3 ($x^2$), 2 ($x$), -5 (constant)</li>
+<li><strong>Divisor ($k$):</strong> Since we divide by $(x - 2)$, our $k = 2$.</li>
+</ul>
+<hr>
+<h3 id="2-the-horner-table-setup"><a class="header" href="#2-the-horner-table-setup">2. The Horner Table Setup</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: left"></th><th style="text-align: left">$x^4$</th><th style="text-align: left">$x^3$</th><th style="text-align: left">$x^2$</th><th style="text-align: left">$x^1$</th><th style="text-align: left">$x^0$</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: left"></td><td style="text-align: left"><strong>1</strong></td><td style="text-align: left"><strong>0</strong></td><td style="text-align: left"><strong>-3</strong></td><td style="text-align: left"><strong>2</strong></td><td style="text-align: left"><strong>-5</strong></td></tr>
+<tr><td style="text-align: left"><strong>(2)</strong></td><td style="text-align: left">↓</td><td style="text-align: left">2</td><td style="text-align: left">4</td><td style="text-align: left">2</td><td style="text-align: left">8</td></tr>
+<tr><td style="text-align: left"></td><td style="text-align: left"><strong>1</strong></td><td style="text-align: left"><strong>2</strong></td><td style="text-align: left"><strong>1</strong></td><td style="text-align: left"><strong>4</strong></td><td style="text-align: left"><strong>(3)</strong></td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="step-by-step-calculation"><a class="header" href="#step-by-step-calculation">Step-by-Step Calculation:</a></h4>
+<ol>
+<li><strong>Drop:</strong> Bring the first coefficient (<strong>1</strong>) straight down.</li>
+<li><strong>Multiply &amp; Add:</strong> $1 \times 2 = 2$. Add to $0 \rightarrow$ <strong>2</strong>.</li>
+<li><strong>Multiply &amp; Add:</strong> $2 \times 2 = 4$. Add to $-3 \rightarrow$ <strong>1</strong>.</li>
+<li><strong>Multiply &amp; Add:</strong> $1 \times 2 = 2$. Add to $2 \rightarrow$ <strong>4</strong>.</li>
+<li><strong>Multiply &amp; Add:</strong> $4 \times 2 = 8$. Add to $-5 \rightarrow$ <strong>3</strong>.</li>
+</ol>
+<hr>
+<h3 id="3-interpreting-the-result"><a class="header" href="#3-interpreting-the-result">3. Interpreting the Result</a></h3>
+<p>The final number in the row is your <strong>Remainder</strong>, and the preceding numbers are the coefficients of the <strong>Quotient</strong>.</p>
+<blockquote>
+<p><strong>Important:</strong> The degree of the quotient is always one less than the original. Since we started with $x^4$, our result starts with $x^3$.</p>
+</blockquote>
+<ul>
+<li><strong>Quotient ($Q(x)$):</strong> $1x^3 + 2x^2 + 1x + 4$</li>
+<li><strong>Remainder ($R$):</strong> $3$</li>
+</ul>
+<hr>
+<h3 id="4-verification-remainder-theorem"><a class="header" href="#4-verification-remainder-theorem">4. Verification (Remainder Theorem)</a></h3>
+<p>To ensure the Horner Method worked correctly, we can plug $x=2$ into the original equation:
+$$P(2) = (2)^4 - 3(2)^2 + 2(2) - 5$$
+$$P(2) = 16 - 12 + 4 - 5$$
+$$P(2) = 3$$</p>
+<p>The results match!</p>
+<hr>
+<h3 id="-common-pitfall-the-zero-placeholder"><a class="header" href="#-common-pitfall-the-zero-placeholder">⚠️ Common Pitfall: The “Zero” Placeholder</a></h3>
+<p>If you forget to include the <strong>0</strong> for the $x^3$ term, the entire calculation shifts:</p>
+<ul>
+<li><strong>Wrong:</strong> $[1, -3, 2, -5]$ ❌</li>
+<li><strong>Correct:</strong> $[1, 0, -3, 2, -5]$ ✅</li>
+</ul>
+<p>Always double-check that your coefficients represent every power from the highest degree down to the constant.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="polynomial_theorems.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                            </a>
 
+                            <a rel="next prefetch" href="practice_polynomials.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -206,7 +268,13 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="polynomial_theorems.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg></span>
+                    </a>
 
+                    <a rel="next prefetch" href="practice_polynomials.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
             </nav>
 
         </div>

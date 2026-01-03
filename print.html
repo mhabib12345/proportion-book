@@ -49,10 +49,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-7ce460a6.js";
+            window.path_to_searchindex_js = "searchindex-b127f860.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-60131400.js"></script>
+        <script src="toc-fb91aa09.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -621,7 +621,147 @@ $$c^2 = a^2 + b^2 - 2ab \cos(C)$$</p>
 <li>If $(x - c)$ is a factor, the graph <strong>crosses</strong> the x-axis at $c$.</li>
 <li>If the remainder is positive, the graph is <strong>above</strong> the axis at that point.</li>
 </ul>
-
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="horner-method"><a href="#horner-method" class="header">Horner Method</a></h1>
+<h2 id="-worked-example-the-horner-method"><a class="header" href="#-worked-example-the-horner-method">📝 Worked Example: The Horner Method</a></h2>
+<p>Let’s solve a problem step-by-step to see how the numbers move through the “Bagan Horner.”</p>
+<p><strong>Problem:</strong> Find the quotient and remainder when:
+$$P(x) = x^4 - 3x^2 + 2x - 5$$
+is divided by $(x - 2)$.</p>
+<hr>
+<h3 id="1-identify-the-coefficients"><a class="header" href="#1-identify-the-coefficients">1. Identify the Coefficients</a></h3>
+<p>Before starting, look for “missing” powers of $x$. In this polynomial, there is no $x^3$ term. You <strong>must</strong> use <strong>0</strong> as a placeholder.</p>
+<ul>
+<li><strong>Coefficients:</strong> 1 ($x^4$), 0 ($x^3$), -3 ($x^2$), 2 ($x$), -5 (constant)</li>
+<li><strong>Divisor ($k$):</strong> Since we divide by $(x - 2)$, our $k = 2$.</li>
+</ul>
+<hr>
+<h3 id="2-the-horner-table-setup"><a class="header" href="#2-the-horner-table-setup">2. The Horner Table Setup</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: left"></th><th style="text-align: left">$x^4$</th><th style="text-align: left">$x^3$</th><th style="text-align: left">$x^2$</th><th style="text-align: left">$x^1$</th><th style="text-align: left">$x^0$</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: left"></td><td style="text-align: left"><strong>1</strong></td><td style="text-align: left"><strong>0</strong></td><td style="text-align: left"><strong>-3</strong></td><td style="text-align: left"><strong>2</strong></td><td style="text-align: left"><strong>-5</strong></td></tr>
+<tr><td style="text-align: left"><strong>(2)</strong></td><td style="text-align: left">↓</td><td style="text-align: left">2</td><td style="text-align: left">4</td><td style="text-align: left">2</td><td style="text-align: left">8</td></tr>
+<tr><td style="text-align: left"></td><td style="text-align: left"><strong>1</strong></td><td style="text-align: left"><strong>2</strong></td><td style="text-align: left"><strong>1</strong></td><td style="text-align: left"><strong>4</strong></td><td style="text-align: left"><strong>(3)</strong></td></tr>
+</tbody>
+</table>
+</div>
+<h4 id="step-by-step-calculation"><a class="header" href="#step-by-step-calculation">Step-by-Step Calculation:</a></h4>
+<ol>
+<li><strong>Drop:</strong> Bring the first coefficient (<strong>1</strong>) straight down.</li>
+<li><strong>Multiply &amp; Add:</strong> $1 \times 2 = 2$. Add to $0 \rightarrow$ <strong>2</strong>.</li>
+<li><strong>Multiply &amp; Add:</strong> $2 \times 2 = 4$. Add to $-3 \rightarrow$ <strong>1</strong>.</li>
+<li><strong>Multiply &amp; Add:</strong> $1 \times 2 = 2$. Add to $2 \rightarrow$ <strong>4</strong>.</li>
+<li><strong>Multiply &amp; Add:</strong> $4 \times 2 = 8$. Add to $-5 \rightarrow$ <strong>3</strong>.</li>
+</ol>
+<hr>
+<h3 id="3-interpreting-the-result"><a class="header" href="#3-interpreting-the-result">3. Interpreting the Result</a></h3>
+<p>The final number in the row is your <strong>Remainder</strong>, and the preceding numbers are the coefficients of the <strong>Quotient</strong>.</p>
+<blockquote>
+<p><strong>Important:</strong> The degree of the quotient is always one less than the original. Since we started with $x^4$, our result starts with $x^3$.</p>
+</blockquote>
+<ul>
+<li><strong>Quotient ($Q(x)$):</strong> $1x^3 + 2x^2 + 1x + 4$</li>
+<li><strong>Remainder ($R$):</strong> $3$</li>
+</ul>
+<hr>
+<h3 id="4-verification-remainder-theorem"><a class="header" href="#4-verification-remainder-theorem">4. Verification (Remainder Theorem)</a></h3>
+<p>To ensure the Horner Method worked correctly, we can plug $x=2$ into the original equation:
+$$P(2) = (2)^4 - 3(2)^2 + 2(2) - 5$$
+$$P(2) = 16 - 12 + 4 - 5$$
+$$P(2) = 3$$</p>
+<p>The results match!</p>
+<hr>
+<h3 id="-common-pitfall-the-zero-placeholder"><a class="header" href="#-common-pitfall-the-zero-placeholder">⚠️ Common Pitfall: The “Zero” Placeholder</a></h3>
+<p>If you forget to include the <strong>0</strong> for the $x^3$ term, the entire calculation shifts:</p>
+<ul>
+<li><strong>Wrong:</strong> $[1, -3, 2, -5]$ ❌</li>
+<li><strong>Correct:</strong> $[1, 0, -3, 2, -5]$ ✅</li>
+</ul>
+<p>Always double-check that your coefficients represent every power from the highest degree down to the constant.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-practice-set-polynomial-challenges"><a class="header" href="#-practice-set-polynomial-challenges">✍️ Practice Set: Polynomial Challenges</a></h1>
+<p>Test your skills using the <strong>Horner Method</strong>, <strong>Remainder Theorem</strong>, and <strong>Factor Theorem</strong>. Try to solve these on paper first, then click the “Solution” toggle to check your work.</p>
+<hr>
+<h3 id="-level-1-the-basics"><a class="header" href="#-level-1-the-basics">🟢 Level 1: The Basics</a></h3>
+<p><strong>Problem 1:</strong> Use the Horner Method to find the quotient and remainder of $(x^3 - 4x^2 + 2x + 5) \div (x - 3)$.</p>
+<details>
+<summary><b>Click to see Solution</b></summary>
+<p><strong>Horner Table:</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: left"></th><th style="text-align: left">1</th><th style="text-align: left">-4</th><th style="text-align: left">2</th><th style="text-align: left">5</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: left"><strong>(3)</strong></td><td style="text-align: left">↓</td><td style="text-align: left">3</td><td style="text-align: left">-3</td><td style="text-align: left">-3</td></tr>
+<tr><td style="text-align: left"></td><td style="text-align: left"><strong>1</strong></td><td style="text-align: left"><strong>-1</strong></td><td style="text-align: left"><strong>-1</strong></td><td style="text-align: left"><strong>(2)</strong></td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>Quotient:</strong> $x^2 - x - 1$</li>
+<li><strong>Remainder:</strong> $2$</li>
+</ul>
+</details>
+<hr>
+<h3 id="-level-2-the-missing-term"><a class="header" href="#-level-2-the-missing-term">🟡 Level 2: The Missing Term</a></h3>
+<p><strong>Problem 2:</strong> Find the remainder of $(2x^4 - 5x^2 + 6) \div (x + 2)$.
+<em>Hint: Don’t forget the placeholders for $x^3$ and $x$!</em></p>
+<details>
+<summary><b>Click to see Solution</b></summary>
+<p><strong>Coefficients:</strong> $2, 0, -5, 0, 6$<br><strong>$k$ value:</strong> $-2$</p>
+<p><strong>Horner Table:</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: left"></th><th style="text-align: left">2</th><th style="text-align: left">0</th><th style="text-align: left">-5</th><th style="text-align: left">0</th><th style="text-align: left">6</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: left"><strong>(-2)</strong></td><td style="text-align: left">↓</td><td style="text-align: left">-4</td><td style="text-align: left">8</td><td style="text-align: left">-6</td><td style="text-align: left">12</td></tr>
+<tr><td style="text-align: left"></td><td style="text-align: left"><strong>2</strong></td><td style="text-align: left"><strong>-4</strong></td><td style="text-align: left"><strong>3</strong></td><td style="text-align: left"><strong>-6</strong></td><td style="text-align: left"><strong>(18)</strong></td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>Remainder:</strong> $18$</li>
+</ul>
+</details>
+<hr>
+<h3 id="-level-3-the-factor-theorem"><a class="header" href="#-level-3-the-factor-theorem">🟠 Level 3: The Factor Theorem</a></h3>
+<p><strong>Problem 3:</strong> Is $(x - 1)$ a factor of $P(x) = x^3 + 2x^2 - x - 2$? Prove it using the Factor Theorem.</p>
+<details>
+<summary><b>Click to see Solution</b></summary>
+<p>According to the Factor Theorem, if $P(1) = 0$, then $(x-1)$ is a factor.</p>
+<p>$$P(1) = (1)^3 + 2(1)^2 - (1) - 2$$
+$$P(1) = 1 + 2 - 1 - 2$$
+$$P(1) = 0$$</p>
+<p><strong>Conclusion:</strong> Yes, $(x-1)$ is a factor because the remainder is zero.</p>
+</details>
+<hr>
+<h3 id="-level-4-solving-for-k"><a class="header" href="#-level-4-solving-for-k">🔴 Level 4: Solving for $k$</a></h3>
+<p><strong>Problem 4:</strong> The polynomial $P(x) = x^3 + kx^2 - 4x + 1$ has a remainder of $5$ when divided by $(x - 2)$. Find the value of $k$.</p>
+<details>
+<summary><b>Click to see Solution</b></summary>
+<p>Use the Remainder Theorem: $P(2) = 5$.</p>
+<p>$$(2)^3 + k(2)^2 - 4(2) + 1 = 5$$
+$$8 + 4k - 8 + 1 = 5$$
+$$4k + 1 = 5$$
+$$4k = 4$$
+<strong>$k = 1$</strong></p>
+</details>
+<hr>
+<h3 id="-level-5-horner-kino-challenge"><a class="header" href="#-level-5-horner-kino-challenge">🟣 Level 5: Horner-Kino Challenge</a></h3>
+<p><strong>Problem 5:</strong> Divide $P(x) = x^4 - 3x^3 + 5x^2 - 2x + 1$ by $(x^2 - x - 2)$.</p>
+<details>
+<summary><b>Click to see Solution</b></summary>
+<p><strong>Multipliers:</strong> $m_1 = 1, m_2 = 2$ (derived from $x^2 - x - 2$).</p>
+<p><strong>Quotient Result:</strong> $x^2 - 2x + 5$<br><strong>Remainder Result:</strong> $-x + 11$</p>
+<p><em>(This uses the two-row multiplication method discussed in the Horner-Kino section.)</em></p>
+</details>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
