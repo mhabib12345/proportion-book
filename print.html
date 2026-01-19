@@ -49,10 +49,10 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
-            window.path_to_searchindex_js = "searchindex-b127f860.js";
+            window.path_to_searchindex_js = "searchindex-edd54036.js";
         </script>
         <!-- Start loading toc.js asap -->
-        <script src="toc-fb91aa09.js"></script>
+        <script src="toc-a3275bf8.js"></script>
     </head>
     <body>
     <div id="mdbook-help-container">
@@ -761,7 +761,108 @@ $$4k = 4$$
 <p><strong>Multipliers:</strong> $m_1 = 1, m_2 = 2$ (derived from $x^2 - x - 2$).</p>
 <p><strong>Quotient Result:</strong> $x^2 - 2x + 5$<br><strong>Remainder Result:</strong> $-x + 11$</p>
 <p><em>(This uses the two-row multiplication method discussed in the Horner-Kino section.)</em></p>
-</details>
+</details><div style="break-before: page; page-break-before: always;"></div>
+<h1 id="-latihan-rumus-excel-interaktif"><a class="header" href="#-latihan-rumus-excel-interaktif">📊 Latihan Rumus Excel Interaktif</a></h1>
+<p>Gunakan tabel di bawah ini untuk menjawab soal-soal latihan. Masukkan rumus Excel yang tepat (gunakan huruf kapital) lalu klik tombol <strong>Cek Jawaban</strong>.</p>
+<h3 id="tabel-data-referensi"><a class="header" href="#tabel-data-referensi">Tabel Data Referensi:</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th style="text-align: center"></th><th style="text-align: center">A (Nama Produk)</th><th style="text-align: center">B (Harga Satuan)</th><th style="text-align: center">C (Jumlah Terjual)</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align: center"><strong>1</strong></td><td style="text-align: center">Kopi</td><td style="text-align: center">15000</td><td style="text-align: center">10</td></tr>
+<tr><td style="text-align: center"><strong>2</strong></td><td style="text-align: center">Teh</td><td style="text-align: center">10000</td><td style="text-align: center">5</td></tr>
+<tr><td style="text-align: center"><strong>3</strong></td><td style="text-align: center">Roti</td><td style="text-align: center">5000</td><td style="text-align: center">20</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="soal-1-penjumlahan-dasar"><a class="header" href="#soal-1-penjumlahan-dasar">Soal 1: Penjumlahan Dasar</a></h3>
+<p>Hitung total seluruh produk yang terjual (Kolom C)!
+<em>Input jawaban (Contoh: =SUM(C1:C3)):</em></p>
+<input type="text" id="soal1" placeholder="Masukkan rumus...">
+<button onclick="cekSoal1()">Cek Jawaban</button>
+<p id="hasil1"></p>
+
+<hr>
+<h3 id="soal-2-perkalian--total-harga"><a class="header" href="#soal-2-perkalian--total-harga">Soal 2: Perkalian &amp; Total Harga</a></h3>
+<p>Hitung total pendapatan untuk <strong>Kopi</strong> saja (Harga Satuan $\times$ Jumlah Terjual)!
+<em>Input jawaban:</em></p>
+<input type="text" id="soal2" placeholder="Masukkan rumus...">
+<button onclick="cekSoal2()">Cek Jawaban</button>
+<p id="hasil2"></p>
+
+<hr>
+<h3 id="soal-3-fungsi-logika-if"><a class="header" href="#soal-3-fungsi-logika-if">Soal 3: Fungsi Logika (IF)</a></h3>
+<p>Jika jumlah terjual (C3) lebih dari 15, maka tampilkan “Laris”, jika tidak tampilkan “Biasa”.
+<em>Input jawaban:</em></p>
+<input type="text" id="soal3" placeholder="Masukkan rumus...">
+<button onclick="cekSoal3()">Cek Jawaban</button>
+<p id="hasil3"></p>
+
+<hr><script>
+function cekSoal1() {
+    var jawaban = document.getElementById("soal1").value.replace(/\s+/g, '');
+    var feedback = document.getElementById("hasil1");
+    if (jawaban === "=SUM(C1:C3)") {
+        feedback.innerHTML = "✅ Benar! Kamu menggunakan fungsi SUM dengan tepat.";
+        feedback.style.color = "green";
+    } else {
+        feedback.innerHTML = "❌ Salah. Coba gunakan =SUM(C1:C3)";
+        feedback.style.color = "red";
+    }
+}
+
+function cekSoal2() {
+    var jawaban = document.getElementById("soal2").value.replace(/\s+/g, '');
+    var feedback = document.getElementById("hasil2");
+    if (jawaban === "=B1*C1") {
+        feedback.innerHTML = "✅ Benar! Perkalian sel menggunakan tanda bintang (*).";
+        feedback.style.color = "green";
+    } else {
+        feedback.innerHTML = "❌ Salah. Coba masukkan =B1*C1";
+        feedback.style.color = "red";
+    }
+}
+
+function cekSoal3() {
+    var jawaban = document.getElementById("soal3").value.replace(/\s+/g, '');
+    var feedback = document.getElementById("hasil3");
+    // Mengecek jawaban dengan kutipan ganda atau tunggal
+    if (jawaban === '=IF(C3>15,"Laris","Biasa")' || jawaban === "=IF(C3>15,'Laris','Biasa')") {
+        feedback.innerHTML = "✅ Luar Biasa! Fungsi IF kamu sudah benar.";
+        feedback.style.color = "green";
+    } else {
+        feedback.innerHTML = "❌ Salah. Formatnya: =IF(C3>15,\"Laris\",\"Biasa\")";
+        feedback.style.color = "red";
+    }
+}
+</script>
+<style>
+input {
+    padding: 8px;
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+#hasil1, #hasil2, #hasil3 {
+    font-weight: bold;
+    margin-top: 5px;
+}
+</style>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
